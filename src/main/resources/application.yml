@@ -3,13 +3,10 @@ cloud:
     stack.auto: false
     region.static: ap-southeast-2
 
-spring:
-  cloud:
-    stream:
-      bindings:
-        input:
-          destination: "trains"  # Dynamodb table name
-      kinesis:
-        bindings:
-          input:
-            consumer.dynamoDbStreams: true
+spring.cloud.stream:
+  bindings:
+    input:
+      destination: "trains"  # Dynamodb table name
+  kinesis.bindings:
+      input:
+        consumer.dynamoDbStreams: true
